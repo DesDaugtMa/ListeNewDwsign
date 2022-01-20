@@ -1,6 +1,10 @@
-.login_container{
+.white_container{
     background-color: white;
     border-radius: 5px;
     margin: 1vh;
     padding: 3vh;
+}
+
+.createAccountInputMobile{
+    margin-bottom: 2vh;
 }
