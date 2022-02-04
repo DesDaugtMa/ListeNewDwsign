@@ -15,18 +15,18 @@
                 $result = $statement->execute(array('token' => $token));
             }
         } else {
-            header("Location: ../index.html");
+            header("Location: ../index.php");
         }
     } else {
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     }
 
     session_start();
 
     if(isset($_GET['r'])) {
 
-        $username = $_POST['username'];
-        $email = $_POST['email'];
+        $username = strtolower($_POST['username']);
+        $email = strtolower($_POST['email']);
         $pwd = $_POST['pwd'];
 
         $pwd_hash = password_hash($pwd, PASSWORD_DEFAULT);
