@@ -1,7 +1,27 @@
 
 <?php 
-    session_start();
     $pdo = new PDO('mysql:host=localhost;dbname=ranzig', 'root', 'Ndsjasmcdj');
+
+    if(isset($_GET['token'])) {
+        $token = $_GET['token'];
+
+        $statement = $pdo->prepare("SELECT * FROM registerToken WHERE token = :token");
+        $result = $statement->execute(array('token' => $token));
+        $tokenInfo = $statement->fetch();
+
+        if ($tokenInfo !== false) {
+            if($tokenInfo['isForever'] == 0){
+                $statement = $pdo->prepare("DELETE FROM registerToken WHERE token = :token");
+                $result = $statement->execute(array('token' => $token));
+            }
+        } else {
+            header("Location: ../index.html");
+        }
+    } else {
+        header("Location: ../index.html");
+    }
+
+    session_start();
 
     if(isset($_GET['r'])) {
 
@@ -62,7 +82,7 @@
                         </div>
                     </div>
                     <div class="white_container">
-                        <form action="?r=1" method="post">
+                        <form action="?token=ncjhsajhncdanskxjnsjkankndjhsabhdbdhab&r=1" method="post">
                             <?php
                                 //
                                 //
@@ -106,9 +126,6 @@
 
                             <input type="submit" class="btn btn-success" style="width: 100%;" id="create" value="Account erstellen">
                         </form>
-                    </div>
-                    <div class="white_container">
-                        <button type="submit" class="btn btn-primary" style="width: 100%;" onclick="window.location.href='../index.html'">Ich habe einen Account</button>
                     </div>
                 </div>
                 <div class="col-sm-4"></div>
