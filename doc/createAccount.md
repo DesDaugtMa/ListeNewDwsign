@@ -1,9 +1,9 @@
 # index.php
 **Funktion:** Das ist die Registrierungsseite von ranzig.at - Hier werden neue Accounts erstellt. <br>
 **Benötigt für:**  - <br>
-**Besonderheiten:** Wenn kein Token in der Url gesetzt ist, dann wird man auf die Login-Seite weitergeleitet. Dadurch, dass sich diese index.php selbst aufruft, wurde in der Datenbank ein Token festgelegt, der für immer gültig ist. DIESER IST NUR FÜR INTERNE ZWECKE ZU GEBRAUCHEN. <br>
-<br>
-In Zukunft könnte man einen Zufallsgenerator für die url im form-Tag schreiben, der diesen zufällig generierten Token in die Datenbank schreibt und dieser dann überprüft wird. So würde man verhindern, dass ein Token für immer existiert.
+**Besonderheiten:** 
+- Wenn kein Token in der Url gesetzt ist, dann wird man auf die Login-Seite weitergeleitet. Dadurch, dass sich diese index.php selbst aufruft, wurde in der Datenbank ein Token festgelegt, der für immer gültig ist. DIESER IST NUR FÜR INTERNE ZWECKE ZU GEBRAUCHEN. In Zukunft könnte man einen Zufallsgenerator für die url im form-Tag schreiben, der diesen zufällig generierten Token in die Datenbank schreibt und dieser dann überprüft wird. So würde man verhindern, dass ein Token für immer existiert.
+- Bei der Validierung der Benutzereingaben wurde viel Javascript verwendet. Dieser Code könnte verwirrend sein.
 
 # getEmails.php
 **Funktion:** Checkt, ob es in der Datenbank eine E-Mail gibt, wie die, die übergeben wurde. <br>
