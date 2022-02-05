@@ -14,39 +14,40 @@
                 $statement = $pdo->prepare("DELETE FROM registerToken WHERE token = :token");
                 $result = $statement->execute(array('token' => $token));
             }
+
+            session_start();
+
+            if(isset($_GET['r'])) {
+
+                $username = strtolower($_POST['username']);
+                $email = strtolower($_POST['email']);
+                $pwd = $_POST['pwd'];
+
+                $pwd_hash = password_hash($pwd, PASSWORD_DEFAULT);
+
+                $statement = $pdo->prepare("INSERT INTO users (`username`, `email`, `password`) VALUES (:username, :email, :passwort)");
+                $result = $statement->execute(array('username' => $username, 'email' => $email, 'passwort' => $pwd_hash));
+
+                if($result) {    
+                    $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+                    $result = $statement->execute(array('username' => $username));
+                    $user = $statement->fetch();
+
+                    if ($user !== false) {
+                        $_SESSION['userid'] = $user['id'];
+                        header("Location: ../list/index.html");
+                    }
+                } else {
+                    $databaseInsertError = true;
+                }
+
+            }
+
         } else {
             header("Location: ../index.php");
         }
     } else {
         header("Location: ../index.php");
-    }
-
-    session_start();
-
-    if(isset($_GET['r'])) {
-
-        $username = strtolower($_POST['username']);
-        $email = strtolower($_POST['email']);
-        $pwd = $_POST['pwd'];
-
-        $pwd_hash = password_hash($pwd, PASSWORD_DEFAULT);
-
-        $statement = $pdo->prepare("INSERT INTO users (`username`, `email`, `password`) VALUES (:username, :email, :passwort)");
-        $result = $statement->execute(array('username' => $username, 'email' => $email, 'passwort' => $pwd_hash));
-
-        if($result) {    
-            $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-            $result = $statement->execute(array('username' => $username));
-            $user = $statement->fetch();
-
-            if ($user !== false) {
-                $_SESSION['userid'] = $user['id'];
-                header("Location: ../list/index.html");
-            }
-        } else {
-            $databaseInsertError = true;
-        }
-
     }
 ?>
 
@@ -82,7 +83,19 @@
                         </div>
                     </div>
                     <div class="white_container">
-                        <form action="?token=ncjhsajhncdanskxjnsjkankndjhsabhdbdhab&r=1" method="post">
+                        <?php
+                            if(!isset($_GET['r'])) {
+                                $characters = 'abcdefghijklmnopqrstuvwxyz';
+                                $charactersLength = strlen($characters);
+                                $randomString = '';
+                                for ($i = 0; $i < 20; $i++) {
+                                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                                }
+                                $statement = $pdo->prepare("INSERT INTO `registerToken`(`token`) VALUES (:randomString)");
+                                $result = $statement->execute(array('randomString' => $randomString));
+                            }
+                        ?>
+                        <form action="?token=<?php echo $randomString; ?>&r=1" method="post">
                             <?php
                                 //
                                 //
