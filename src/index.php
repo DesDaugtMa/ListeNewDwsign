@@ -6,14 +6,14 @@
 
         $ip = $_SERVER["REMOTE_ADDR"];
 
-        $statement = $pdo->prepare("INSERT INTO loginAttempts(ip) VALUES (:ip)");
-        $result = $statement->execute(array('ip' => $ip));
-
         $statement = $pdo->prepare("SELECT COUNT(*) AS 'Count' FROM loginAttempts WHERE ip LIKE :ip AND `timestamp` > (now() - interval 5 minute)");
         $result = $statement->execute(array('ip' => $ip));
         $loginAttempts = $statement->fetch();
 
-        if($loginAttempts['Count'] <= 5){
+        if($loginAttempts['Count'] < 5){
+            $statement = $pdo->prepare("INSERT INTO loginAttempts(ip) VALUES (:ip)");
+            $result = $statement->execute(array('ip' => $ip));
+
             $username = strtolower($_POST['username']);
             $passwort = $_POST['pwd'];
         
@@ -30,6 +30,14 @@
             }
         }
         else{
+            $statement = $pdo->prepare("SELECT `timestamp`FROM loginAttempts WHERE ip LIKE :ip AND `timestamp` > (now() - interval 5 minute) LIMIT 1");
+            $result = $statement->execute(array('ip' => $ip));
+            $timestampFirstAttempt = $statement->fetch();
+
+            $firstAttemptTime = strtotime($timestampFirstAttempt[0]);
+
+            $firstAttemptTime = date('H:i', strtotime('+1 hour +5 minutes', $firstAttemptTime));
+
             $attemptError = true;
         }
         
@@ -89,7 +97,7 @@
                                     ?>
                                         <div class="alert alert-danger alert-dismissible" style="margin-top: 1vh;">
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                            Limit der Versuche überschritten! Versuche es um <?php echo date('H:i', strtotime('+1 hour +5 minutes')); ?> nocheinmal.
+                                            Limit der Versuche überschritten! Versuche es um <?php echo $firstAttemptTime; ?> nocheinmal.
                                         </div>
                                     <?php
                                 } else if($error == true){
