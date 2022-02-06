@@ -44,10 +44,10 @@
             }
 
         } else {
-            header("Location: ../index.php");
+            header("Location: ../login/index.php");
         }
     } else {
-        header("Location: ../index.php");
+        header("Location: ../login/index.php");
     }
 ?>
 
