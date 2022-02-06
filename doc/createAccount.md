@@ -2,7 +2,7 @@
 **Funktion:** Das ist die Registrierungsseite von ranzig.at - Hier werden neue Accounts erstellt. <br>
 **Benötigt für:**  - <br>
 **Besonderheiten:** 
-- Wenn kein Token in der Url gesetzt ist, dann wird man auf die Login-Seite weitergeleitet. Dadurch, dass sich diese index.php selbst aufruft, wurde in der Datenbank ein Token festgelegt, der für immer gültig ist. DIESER IST NUR FÜR INTERNE ZWECKE ZU GEBRAUCHEN. In Zukunft könnte man einen Zufallsgenerator für die url im form-Tag schreiben, der diesen zufällig generierten Token in die Datenbank schreibt und dieser dann überprüft wird. So würde man verhindern, dass ein Token für immer existiert.
+- Wenn kein Token in der Url gesetzt ist, dann wird man auf die Login-Seite weitergeleitet. Dadurch, dass sich diese index.php selbst aufruft, wird (wenn der 'r'-Parameter in der Url NICHT gesetzt ist) ein neuer Token erstellt, und in die Datenbank geschrieben. Dieser wird dann in der Url beim selbstaufruf wieder übergeben und danach aus der Datenbank gelöscht. -> Der selbstaufruf findet statt, um die Register-Daten in die Datenbank zu schreiben und die userId in der Session zu setzen.
 - Bei der Validierung der Benutzereingaben wurde viel Javascript verwendet. Dieser Code könnte verwirrend sein.
 
 # getEmails.php
