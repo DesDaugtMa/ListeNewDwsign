@@ -1,7 +1,7 @@
 <?php
     $isReachable = true;
     if($isReachable){
-        header("Location: /login/index.php");
+        header("Location: login/index.php");
     } else {
         ?>
             <!DOCTYPE html>
@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4">
-                                <div class="alert alert-warning">
+                                <div class="alert alert-warning" style="margin-top: 7vh;">
                                     Die Website ist momentan nicht erreichbar. Bitte versuche es später wieder.
                                 </div>
                             </div>
