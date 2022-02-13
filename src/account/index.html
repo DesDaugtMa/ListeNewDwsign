@@ -20,22 +20,20 @@
     <body style="background-color: rgb(237, 237, 237);">
         <nav class="navbar navbar-expand-sm bg-light navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand">Dein Account</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../list/index.html">Liste</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../counter/index.php">Zähler</a>
-                        </li>
-                    </ul>
-                </div>
+                <i class="bi bi-list navbar-brand" onclick="openNav()" style="font-size: 3vh; cursor: pointer;"></i>
+                <!-- <a class="navbar-brand">Test</a> -->
             </div>
         </nav>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <img src="noProfilePicture.png" height="70" width="70" class="rounded-circle" style="border: 2px solid lightgrey; display: block; margin: auto;">
+            <span class="badge bg-light" style="display: block; margin: auto;"><span class="text-info" style="font-size: 2vh;">@DesDaugtMa</span></span>
+            <a href="#">Profil</a>
+            <a href="#">Liste</a>
+            <a href="#">Zähler</a>
+        </div>
+
         <div class="container-fluid">
             <div class="white_container" style="position: relative;">
                 <div class="row">
@@ -68,5 +66,15 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
     </body>
 </html>
