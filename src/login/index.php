@@ -14,7 +14,7 @@
             $statement = $pdo->prepare("INSERT INTO loginAttempts(ip) VALUES (:ip)");
             $result = $statement->execute(array('ip' => $ip));
 
-            $username = strtolower($_POST['username']);
+            $username = $_POST['username'];
             $passwort = $_POST['pwd'];
         
             $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");

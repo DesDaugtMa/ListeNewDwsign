@@ -19,7 +19,7 @@
 
             if(isset($_GET['r'])) {
 
-                $username = strtolower($_POST['username']);
+                $username = $_POST['username'];
                 $email = strtolower($_POST['email']);
                 $pwd = $_POST['pwd'];
 
