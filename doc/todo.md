@@ -17,7 +17,7 @@
 <h3>List</h3>
 [] Design für Liste entgültig festlegen <br>
 [] Diese Seite darf nur mit gültiger User-ID in der Session aufgerufen werden <br>
-[] Modal für Eintrag anstatt Collapse (Wegen Multicollapse weils bei der Suche nicht leiwand is)
+[] Modal für Eintrag anstatt Collapse (Wegen Multicollapse weils bei der Suche nicht leiwand is) <br>
  - [] Nur ein Modal und nicht extra für jeden Eintrag
  - [] Daten werden über einen PHP-Aufruf von Javascript geholt
  - [] 
