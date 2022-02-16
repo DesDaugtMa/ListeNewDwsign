@@ -3,7 +3,7 @@
 <h3>Create Acccount</h3>
 [] Was ist Bodycount.at-Seite erstellen <br>
 [] Einen Link zum Impressum anführen <br>
-[] Einen Link zur Datenschutzvereinbarung hinterlegen <br>
+[] Einen Link zur Datenschutzvereinbarung hinterlegen
 
 <h3>Login</h3>
 [] Was ist Bodycount.at-Seite erstellen
