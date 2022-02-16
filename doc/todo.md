@@ -1,5 +1,5 @@
 <h3>Allgemein</h3>
-[&nbsp;] Logo für Bodycount.at erstellen <br>
+[x] Logo für Bodycount.at erstellen <br>
 [&nbsp;] Datenschutz-Text erstellen <br>
 [&nbsp;] Impressum-Text erstellen <br>
 [&nbsp;] Eigene PHP-Library für Datenbankoperationen erstellen
