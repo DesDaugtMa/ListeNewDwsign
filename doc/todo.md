@@ -6,7 +6,7 @@
 [] Einen Link zur Datenschutzvereinbarung hinterlegen
 
 <h3>Login</h3>
-[] Was ist Bodycount.at-Seite erstellen
-[] Neues auf Bodycount.at-Seite erstellen
-[] Einen Link zur Datenschutzvereinbarung hinterlegen
+[] Was ist Bodycount.at-Seite erstellen <br>
+[] Neues auf Bodycount.at-Seite erstellen <br>
+[] Einen Link zur Datenschutzvereinbarung hinterlegen <br>
 [] Einen Link zum Impressum anführen
