@@ -18,8 +18,8 @@
 [] Design für Liste entgültig festlegen <br>
 [] Diese Seite darf nur mit gültiger User-ID in der Session aufgerufen werden <br>
 [] Modal für Eintrag anstatt Collapse (Wegen Multicollapse weils bei der Suche nicht leiwand is) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [] Nur ein Modal und nicht extra für jeden Eintrag <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [] Daten werden über einen PHP-Aufruf von Javascript geholt <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [] <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [] Nur ein Modal und nicht extra für jeden Eintrag <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [] Daten werden über einen PHP-Aufruf von Javascript geholt <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [] <br>
 [] Hinzufügen auch durch ein Modal lösen <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [] Seite soll beim hinzufügen neu geladen werden und man soll dann ganz untern (beim Eintrag) mit der Sicht sein
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [] Seite soll beim hinzufügen neu geladen werden und man soll dann ganz untern (beim Eintrag) mit der Sicht sein
