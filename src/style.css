@@ -37,3 +37,8 @@
 .back_button:hover{
   cursor: pointer;
 }
+
+.modal_label{
+    margin: 0;
+    margin-top: 1vh;
+}
