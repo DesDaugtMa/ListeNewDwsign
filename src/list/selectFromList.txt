@@ -1,0 +1,19 @@
+SELECT 
+	`list`.`id`, 
+    `list`.`name`, 
+    `mappingActivity`.`activity`, 
+    `mappingRating`.`rating`,
+    `list`.`location`,
+    `list`.`note`
+FROM 
+	`list` 
+INNER JOIN 
+	mappingActivity 
+ON 
+	`list`.`activityId`=mappingActivity.id 
+INNER JOIN 
+	mappingRating 
+ON 
+	`list`.`ratingId`=mappingRating.id 
+WHERE 
+	userId = 4

@@ -12,10 +12,6 @@
     padding: 3vh;
 }
 
-.white_container_list:hover{
-    cursor: pointer;
-}
-
 .white_container_collapse{
     background-color: white;
     border-radius: 5px;
@@ -41,4 +37,12 @@
 .modal_label{
     margin: 0;
     margin-top: 1vh;
+}
+
+.addButton:hover{
+    cursor: pointer;
+}
+
+.btn_hover:hover{
+    cursor: pointer;
 }
