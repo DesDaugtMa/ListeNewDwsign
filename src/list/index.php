@@ -4,11 +4,6 @@
     if(!isset($_SESSION["userid"])){
         header("Location: ../login/index.php");
     }
-
-    $pdo = new PDO('mysql:host=localhost;dbname=ranzig', 'root', 'Ndsjasmcdj');
-
-    $statement = $pdo->prepare("SELECT `list`.`id`, `list`.`name`, `mappingActivity`.`activity`, `mappingRating`.`rating`,`list`.`location`,`list`.`note`FROM `list` INNER JOIN mappingActivity ON `list`.`activityId`=mappingActivity.id INNER JOIN mappingRating ON `list`.`ratingId`=mappingRating.id WHERE userId = :userId");
-    $statement->execute(array('userId' => $_SESSION["userid"]));   
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -31,8 +26,8 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- Dynamic Modal JS -->
-        <script src="modal-with-custom-action.js"></script>
+        <!-- Own JS -->
+        <script src="test.js"></script>
     </head>
     <body style="background-color: rgb(237, 237, 237);">
 
@@ -45,30 +40,12 @@
             </nav>
 
             <div class="container-fluid" style="margin-top: 7vh;">
-                <div class="row">
+                <div class="row" id="test">
                     <div class="col-sm-4">
                         <div class="white_container_list" style="background-color: #cacaca;">
                             Du hast 4 Einträge<span style="float: right;"><i class="bi bi-info-circle"></i></span>
                         </div>
                     </div>
-                    <?php
-                        while($row = $statement->fetch()) {
-                            echo '<div class="col-sm-4">';
-                                echo '<div class="white_container_list">';
-                                    echo '<strong>' . $row["name"] . '</strong>';
-                                    echo '<span style="float: right;">';
-                                        echo '<i class="bi bi-pencil btn_hover" style="margin-right: 2vh;" onclick="showModal(\'edit\', \'' . $row["id"] . '\');"></i>';
-                                        echo '<i class="bi bi-trash text-danger btn_hover" onclick="showModal(\'delete\', \'' . $row["id"] . '\');"></i>';
-                                    echo '</span>';
-                                    echo '<hr>';
-                                    echo '<p class="p_data">Bewertung: ' . $row["rating"] . '</p>';
-                                    echo '<p class="p_data">Aktivität: ' . $row["activity"] . '</p>';
-                                    echo '<p class="p_data">Ort: ' . $row["location"] . '</p>';
-                                    echo '<p class="p_data">Notiz: ' . $row["note"] . '</p>';
-                                echo '</div>';
-                            echo '</div>';
-                        }
-                    ?>
                     <div class="col-sm-4">
                         <div class="white_container_list">
                             <strong>Leonie Forstner</strong>
