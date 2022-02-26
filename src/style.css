@@ -46,3 +46,7 @@
 .btn_hover:hover{
     cursor: pointer;
 }
+
+.p_data{
+    margin-bottom: 1vh;
+}

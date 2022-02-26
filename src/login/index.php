@@ -24,7 +24,7 @@
             //Überprüfung des Passworts
             if ($user !== false && password_verify($passwort, $user['password'])) {
                 $_SESSION['userid'] = $user['id'];
-                header("Location: ../list/index.html");
+                header("Location: ../list/index.php");
             } else {
                 $error = true;
             }
